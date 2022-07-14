@@ -1,0 +1,9 @@
+# Manually created as-at 2022-07-14
+name: jaffle_shop
+channels:
+- defaults
+dependencies:
+- pip>=21.2.*
+- python==3.9.*
+- pip:
+  - dbt-postgres

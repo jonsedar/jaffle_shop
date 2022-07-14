@@ -35,6 +35,61 @@ $ cd jaffle_shop
 
 4. Set up a profile called `jaffle_shop` to connect to a data warehouse by following [these instructions](https://docs.getdbt.com/docs/configure-your-profile). If you have access to a data warehouse, you can use those credentials – we recommend setting your [target schema](https://docs.getdbt.com/docs/configure-your-profile#section-populating-your-profile) to be a new schema (dbt will create the schema for you, as long as you have the right privileges). If you don't have access to an existing data warehouse, you can also setup a local postgres database and connect to it in your profile.
 
+```sh
+## basic install MacOS using Homebrew ------------------------------------------
+$> brew update && brew upgrade
+$> brew install postgres
+$> psql --version
+psql (PostgreSQL) 14.4
+
+## reminder of brew services ---------------------------------------------------
+$> brew services start postgres
+$> brew services stop postgres
+$> brew services restart postgres
+
+## optional stuff:
+
+$> psql postgres
+### list users
+postgres=# \du
+### list DBs
+postgres=# \l
+
+
+```
+
+#### Setup a DB with schema in Postgres (use PGAdmin4 - easier)
+
+```sh
+$> brew install pgadmin4
+```
+... manually register new server localhost
+
+
+#### Create a dbt profile file
+
+```sh
+$> touch .dbt/profiles.yml
+```
+
+... with contents:
+
+```
+jaffle_shop:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: jon
+      password: ""
+      port: 5432
+      dbname: jaffle_shop
+      schema: dbt_jon
+      threads: 4
+```
+
+
 5. Ensure your profile is setup correctly from the command line:
 ```bash
 $ dbt debug

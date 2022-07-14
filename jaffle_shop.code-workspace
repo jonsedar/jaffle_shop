@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "/opt/miniconda/envs/jaffle_shop/bin/python",
+		"workbench.colorTheme": "GitHub Light Default",
+	}
+}
