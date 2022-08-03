@@ -63,7 +63,10 @@ postgres=# \l
 ```sh
 $> brew install pgadmin4
 ```
-... manually register new server localhost
+
+1. Load pgAdmin4 
+2. Manually register a new server called `localhost` and a user `jon` with no password
+3. Create an empty database named `jaffle_shop`
 
 
 #### Create a dbt profile file
